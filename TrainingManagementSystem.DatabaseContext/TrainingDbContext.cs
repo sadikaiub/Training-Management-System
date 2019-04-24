@@ -8,6 +8,15 @@ namespace TrainingManagementSystem.DatabaseContext
 {
     public class TrainingDbContext:DbContext
     {
+        public TrainingDbContext()
+        {
+            
+        }
+
+        public TrainingDbContext(DbContextOptions options):base(options)
+        {
+            
+        }
         public DbSet<Course> Courses { get; set; }
 
          protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

@@ -7,8 +7,14 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using TrainingManagementSystem.DatabaseContext;
+using TrainingManagementSystem.Managers;
+using TrainingManagementSystem.Managers.Contracts;
+using TrainingManagementSystem.Repositories;
+using TrainingManagementSystem.Repositories.Contracts;
 
 namespace TrainingManagementSystem
 {
@@ -29,6 +35,13 @@ namespace TrainingManagementSystem
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
+            services.AddTransient<ICourseManager, CourseManager>();
+            services.AddTransient<ICourseRepository, CourseRepository>();
+            services.AddTransient<DbContext, TrainingDbContext>();
+            services.AddDbContext<TrainingDbContext>(optionBuilder =>
+            {
+                optionBuilder.UseSqlServer("Server=(local);Database=TrainingDb;Integrated Security=true");
             });
 
 

@@ -11,8 +11,6 @@ namespace TrainingManagementSystem.Repositories
 {
     public class CourseRepository : BaseRepository<Course>, ICourseRepository
     {
-        
-
         public CourseRepository(DbContext db) : base(db)
         {
 
