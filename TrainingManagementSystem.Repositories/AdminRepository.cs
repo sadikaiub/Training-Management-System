@@ -8,9 +8,9 @@ using TrainingManagementSystem.Repositories.Contracts;
 
 namespace TrainingManagementSystem.Repositories
 {
-    public class ExecutiveRepository:BaseRepository<Executive>,IExecutiveRepository
+    public class AdminRepository:BaseRepository<Admin>,IAdminRepository
     {
-        public ExecutiveRepository(DbContext db):base(db)
+        public AdminRepository(DbContext db):base(db)
         {
             
         }
