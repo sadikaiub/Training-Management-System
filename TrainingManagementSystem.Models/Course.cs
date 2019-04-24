@@ -14,6 +14,9 @@ namespace TrainingManagementSystem.Models
         public string Duration { get; set; }
         public string  Outline { get; set; }
         public int  NumberOfClass { get; set; }
+        public List<Trainee> Trainees { get; set; }
+        public  List<Trainer> Trainers { get; set; }
+        public List<Batch> Batches { get; set; }
         
     }
 
